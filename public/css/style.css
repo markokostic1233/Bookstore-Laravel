@@ -94,7 +94,7 @@ p {
 }
 
 .card-body {
-    box-shadow: 0 0px 0px 5px #797b79;
+    box-shadow: 0 0px 0px 5px #222222;
     margin: 20px 40px;
     background-color: #222222;
 
@@ -233,6 +233,7 @@ img.slider-img{
 
   .h1 ,h1{
       color:white;
+      font-family: Yellowtail;
   }
 
   .btn-danger {
@@ -301,4 +302,27 @@ table {
     background-color: #08050500;
     width: 30%;
     margin-bottom: 5%;
+}
+
+.h5, h5 {
+    font-weight: bolder;
+    color: red;
+    font-family: inherit;
+    font-size: 20px;
+}
+
+.row {
+    margin-right: 40px;
+    margin-left: 40px;
+}
+
+.h4, h4 {
+    font-size: 18px;
+    color: #daedf4;
+    font-size: 19px;
+    font-family: Yellowstone;
+}
+#search{
+
+    min-width: 250px !important;
 }

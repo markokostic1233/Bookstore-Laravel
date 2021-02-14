@@ -18,27 +18,28 @@
             <div class="container-fluid">
             <div class="offset-lg-4 col-lg-4">
 
-            <form action="{{ route('login') }}" class="pt-5" method="POST">
-
+         <form action="{{ route('login') }}" class="pt-5" method="POST">
                 @csrf
 
+            <div class="form-group">
+                <label for="inputEmail" class="control-label text-white">Email</label>
+                <input type="email" id="email" value="{{ old('email') }}" required class="form-control" name="email" aria-labelledby="passwordnotification">
+                <div id="emailBlank" class="bg-danger text-white mb-2 mt-2 pl-2"></div>
+            </div>
 
-                <div class="form-group">
-                    <label for="inputEmail" class="control-label text-white">Email</label>
-                    <input type="email" value="{{ old('email') }}" required class="form-control" name="email" aria-labelledby="passwordnotification">
+            <div class="form-group">
+                <label for="inputPassword" class="control-label  text-white">Password</label>
+                <input type="password" id="password"  name="password" required class="form-control"  id="inputPassword" aria-labelledby="passwordnotification">
+                <div id="passwordBlank" class="bg-danger text-white mb-2 mt-2 pl-2"></div>
+            </div>
 
-                </div>
-                <div class="form-group">
-                    <label for="inputPassword" class="control-label  text-white">Password</label>
-                    <input type="password"  name="password" required class="form-control"  id="inputPassword" aria-labelledby="passwordnotification">
+            <div class="form-group">
+                <button onclick="myfun()" class="form-control btn btn-dark disabled text-white" type="submit"  name="submit" > Login </button>
+            </div>
+            <div class="bg-success text-white mb-2 mt-2 pl-2" id="Success"></div>
 
-                </div>
 
-                <div class="form-group">
-                    <button class="form-control btn btn-dark disabled text-white" type="submit"  name="submit" > Login </button>
-                </div>
                 <a href="{{ '/register' }}" class="form-control btn btn-dark  text-white"  > Register </a>
-
             </form>
 
         </div>
@@ -47,5 +48,45 @@
 
 </div>
         </section>
+
+        <script type="text/javascript">
+
+            function myfun(){
+
+              var Myemail = document.getElementById('email').value;
+              var Mypassword = document.getElementById('password').value;
+
+              if(Myemail == ''){
+
+                 document.getElementById('emailBlank').innerHTML="Please enter email..";
+
+              }else if(Myemail !== ''){
+
+                 document.getElementById('emailBlank').innerHTML="";
+              }
+              if(Mypassword == ''){
+
+                document.getElementById('passwordBlank').innerHTML="Please enter password..";
+
+             }else if(Mypassword !== ''){
+
+                document.getElementById('passwordBlank').innerHTML="";
+             } else if(Mypassword.length < 4){
+
+                document.getElementById('passwordBlank').innerHTML="Password is less 4 charac.";
+
+             }
+
+             else{
+
+                  document.getElementById('Success').innerHTML="You have successflly logged in.."
+
+             }
+
+
+            }
+
+        </script>
+
 </body>
 </html>

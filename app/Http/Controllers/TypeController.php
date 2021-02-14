@@ -19,15 +19,15 @@ class TypeController extends Controller
          ->groupBy('Name', 'price_id')
          ->get();
         return view('book.bookstore')->with('bookstores', $bookstores);
-   
+
    }
 
    public function search(){
 
         $search_text = $_GET['query'];
 
-        $bookstores = Type::where('Name', 'LIKE', '%'.$search_text.'%')
-        ->orWhere('category', 'LIKE', '%'.$search_text.'%') 
+        $bookstores = Type::where('BooksName', 'LIKE', '%'.$search_text.'%')
+    //    ->orWhere('category', 'LIKE', '%'.$search_text.'%')
         ->get();
          return view('book.search', compact('bookstores'));
 

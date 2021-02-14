@@ -8,6 +8,7 @@ use App\Models\Type;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use PDO;
 use Session;
 
 class BookController extends Controller
@@ -26,10 +27,25 @@ class BookController extends Controller
          return view('name.index')->with('bookShows',$bookShows);
     }
 
+    public function search(){
+
+        $search_text = $_GET['query'];
+
+        $bookShows = Book::where('BooksName', 'LIKE', '%'.$search_text.'%')
+    //    ->orWhere('category', 'LIKE', '%'.$search_text.'%')
+        ->get();
+         return view('name.search', compact('bookShows'));
+
+   }
+
     public function cart(){
 
         return view('cart');
     }
+
+
+
+
 
     public function addToCart(Book $book){
 
@@ -80,7 +96,7 @@ class BookController extends Controller
             unset($cart[$id]);
             session()->put('cart', $cart);
         }
-        return redirect()->back()->with('success', "Removed from Cart");
+        return redirect()->back()->with('remove', "Removed from Cart");
 
 
 

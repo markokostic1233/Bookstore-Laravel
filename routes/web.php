@@ -26,13 +26,12 @@ Route::resource('/bookstore', 'App\Http\Controllers\TypeController')->except(['s
 Route::get('/table/{boooks}', [ "uses" => 'App\Http\Controllers\TypeController@show', "as" => "book.show"]);
 Route::resource('/boooks', 'App\Http\Controllers\BookController');
 
-Route::get('/search', [ "uses" => 'App\Http\Controllers\TypeController@search', "as" => "book.search"]);
+Route::get('/search', [ "uses" => 'App\Http\Controllers\BookController@search', "as" => "name.search"]);
 Route::get('/book', [ "uses" => 'App\Http\Controllers\BookController@book', "as" => "name.book"]);
 Route::get('/cart', [ "uses" => 'App\Http\Controllers\BookController@cart', "as" => "name.cart"]);
 Route::get('/add-to-cart/{book}',  'App\Http\Controllers\BookController@addToCart')->name('add-cart');
 Route::get('/cart', 'App\Http\Controllers\BookController@cart')->name('cart');
 Route::get('/remove/{id}', 'App\Http\Controllers\BookController@delete')->name('remove');
-
 Route::get('/', [App\Http\Controllers\HomeController::class, 'home'])->name('home')->middleware('auth');;
 
 

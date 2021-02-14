@@ -5,26 +5,8 @@
 
 
 
-<div class="container">
 
-    <div class="row">
-        <div class="col-md-5 col-md-offset-4">
-           <div class="hide-phone app-search" style="margin: 0px">
-           <form action="{{ route('book.search')}}" method="GET" class="search-form">
-             {{csrf_field()}}
-                <div class="input-group">
-            		<label for="search" class="sr-only">Search</label>
-<input type="search" style="min-width: 350px"
-                 name="query" id="productSearch" placeholder="Search category.."
-                   class="form-control search"/> <span class="input-group-btn ">
-    <button class="btn btn-outline-primary" style="margin-left:5px" type="submit">Go</button>
-  </span>
 
-            </form>
-        </div><br><br>
-        </div>
-    </div>
-</div>
 
 
 
@@ -54,6 +36,7 @@
 
 
 
+
  </div>
 
 </div>
@@ -73,8 +56,27 @@
 
 
 
- <script src="{{ asset('js/app.js') }}"></script>
-        <script src="{{ asset('js/search.js') }}"></script>
+            <script>
+
+                $(document).ready(function(){
+
+
+
+                    $(".search").on("keyup", function() {
+                    var value = $(this).val().toLowerCase();
+
+                        $(".product").filter(function() {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                        });
+                    });
+                });
+
+
+
+
+               </script>
+
+
 
 
 

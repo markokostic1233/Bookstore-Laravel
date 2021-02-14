@@ -3,7 +3,29 @@
 
 @section('content')
 
+<div class="container">
 
+    <div class="row">
+        <div class="col-md-5 col-md-offset-4">
+
+
+
+            <form action="{{ route('name.search')}}" method="GET" class="search-form">
+                {{csrf_field()}}
+                   <div class="input-group">
+                       <label for="search" class="sr-only">Search</label>
+            <input type="search" style="min-width: 350px"
+                    name="query" id="search" placeholder="Search name.."
+                      class="form-control search"/> <span class="input-group-btn ">
+            <button class="btn btn-outline-primary" style="margin-left:5px" type="submit">Go</button>
+            </span>
+
+               </form>
+            </div>
+        </div>
+    </div>
+
+<br><br>
 
 <div class="container custom-product">
 
@@ -45,13 +67,6 @@
 <br><br><br>
 
 
-
-
-
-
-
-
-
   <div class="container">
     @foreach($bookstores as $bookstore)
     <div class="row justify-content-md-center">
@@ -60,7 +75,10 @@
 
         <img class="card-img-top" src="data:image/png;base64,{{ chunk_split(base64_encode($bookstore->boooks->Images)) }}" alt="Card image cap">
       </div>
-      <div class="col-4 col-lg-3"> {{$bookstore->boooks->Name}}</div>
+
+      <div class="col-4 col-lg-3"> <h4> {{$bookstore->boooks->BooksName}} </h4>
+
+      <br> <br> {{$bookstore->boooks->Name}}</div>
 
       <div class="col-4 col-lg-3 ">
         <i class="fas fa-clock">

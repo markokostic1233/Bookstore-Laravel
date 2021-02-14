@@ -42,7 +42,7 @@
        <img src="data:image/png;base64,{{ chunk_split(base64_encode($bookstore->prices->Picture)) }}"class="card-img-top">
 
         <div class="card-body">
-        <h5 class="card-title"> {{$bookstore->Name}} </h5>
+        <h5 class="card-title"> {{$bookstore->boooks->Name}} </h5>
 
         <p class="card-text">{{$bookstore->prices->price}} </p>
 
