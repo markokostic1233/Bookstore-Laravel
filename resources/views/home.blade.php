@@ -10,7 +10,7 @@
 
 <div class="card text-center">
     <div class="card-header">
-      <h1>BOOKSTORE </h1>
+      <h1>Online Bookstore </h1>
     </div>
 <br> <br>
       <h5 class="card-title">
